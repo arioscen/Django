@@ -14,7 +14,7 @@
     <div>
         {% for post in posts %}
         <p>post_time:{{post.created_date}}</p>
-        <h2><a href="">{{post.title}}</a></h2>
+        <h2><a href="/blog/{{post.id}}">{{post.title}}</a></h2>
         <p>{{post.text|linebreaks}}</p>
         {% endfor %}
     </div>
