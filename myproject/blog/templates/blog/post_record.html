@@ -12,6 +12,11 @@
                 </p>
                 <p class="blog-post-meta">{{post.created_date}} by <a href="#">{{post.author}}</a></p>
                 <a href="/blog/">return first page</a>
+
+                <!--<a href="{{post_prev}}"><button>prev</button></a>-->
+                {% if next_post %}
+                <a href="/blog/{{next_post.id}}">next page</a>
+                {% endif %}
             </div>
         </div>
     </div>

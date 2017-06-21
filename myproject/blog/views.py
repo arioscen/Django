@@ -25,5 +25,7 @@ def add_record(request):
     return redirect('/blog')
 
 def post_record(request,id):
-    post = Post.objects.get(id = id)
+    posts = Post.objects.filter(id__lte=id)[::-1][:2]
+    post = posts[0]
+    next_post = posts[1] if len(posts) > 1 else None
     return render(request, 'blog/post_record.html',locals())
