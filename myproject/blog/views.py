@@ -10,7 +10,7 @@ me = User.objects.get(username="iii")
 #     return render(request, 'blog/post_list.html', {})
 
 def post_list(request):
-    # posts = Post.objects.all().order_by('created_date')
+    posts = Post.objects.all().order_by('created_date')
     # posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('published_date')
     # return render(request, 'blog/post_list.html', {'posts':posts})
 
@@ -23,3 +23,7 @@ def add_record(request):
         text = request.POST['text'].encode('utf-8')
         newpost = Post.objects.create(author=me,title=title,text=text)
     return redirect('/blog')
+
+def post_record(request,id):
+    post = Post.objects.get(id = id)
+    return render(request, 'blog/post_record.html',locals())

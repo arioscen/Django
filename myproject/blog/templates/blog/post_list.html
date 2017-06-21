@@ -11,15 +11,16 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    <!--<div>-->
-        <!--{% for post in posts %}-->
-        <!--<p>post_time:{{post.created_date}}</p>-->
-        <!--<h2><a href="">{{post.title}}</a></h2>-->
-        <!--<p>{{post.text|linebreaks}}</p>-->
-        <!--{% endfor %}-->
-    <!--</div>-->
+    <div>
+        {% for post in posts %}
+        <p>post_time:{{post.created_date}}</p>
+        <h2><a href="">{{post.title}}</a></h2>
+        <p>{{post.text|linebreaks}}</p>
+        {% endfor %}
+    </div>
 
     <form action="/blog/add_record" method="post" accept-charset="utf-8">
+    {% csrf_token %}
         <table>
             {{post_form.as_table}}
         </table>
